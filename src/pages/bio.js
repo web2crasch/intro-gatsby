@@ -11,17 +11,31 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+//Replacing the previous content with our "People" component.  I can now reuse the
+//component with my custom styles only applied to that component using CSS Modules
+import People from "../components/people"
+
 //Adding a component inside the 'pages' directory will automatically create
 //that page for you with the path "/bio"
 const Bio = () => {
     return (
         <Layout>
             <SEO title="Bio" />
-            <img src="https://source.unsplash.com/random/400x200" alt=""/>
-            <h1>Hi, My name is Chris.</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa aperiam qui, a expedita animi libero? Amet sint blanditiis alias soluta iure accusamus illum cupiditate odio consequuntur ipsa esse vitae corrupti nesciunt, voluptatibus fugiat nulla quia cum sapiente! Molestias sapiente pariatur velit praesentium unde mollitia. Eos voluptatibus dolorem nemo, nulla nam eligendi eaque delectus labore optio, reprehenderit minus consectetur illum sapiente. Ab iure incidunt recusandae dolor, eos, aspernatur quod soluta repellat magnam quas error in eum delectus, eligendi nisi. Doloribus quidem dolorum inventore cumque quisquam nihil accusamus officia quibusdam qui nisi. Eum quidem et doloribus perspiciatis sed vero officia nam nesciunt?
-            </p>
+            <People 
+                avatar="https://source.unsplash.com/random/"
+                title="Chris"
+                excerpt="This is some text."
+            />
+            <People 
+                avatar="https://source.unsplash.com/random/"
+                title="Sue"
+                excerpt="This is some text."
+            />
+            <People 
+                avatar="https://source.unsplash.com/random/"
+                title="Matt"
+                excerpt="This is some text."
+            />
             <Link to="/">&larr; Back to Home</Link>
         </Layout>
     )
