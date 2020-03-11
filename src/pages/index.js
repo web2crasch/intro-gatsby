@@ -11,11 +11,14 @@ export const query = graphql`
     allMarkdownRemark(sort: {fields: frontmatter___data, order: DESC}) {
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             data(formatString: "YYYY MMMM,DD")
             title
           }
-          html
+          excerpt
         }
       }
     }
@@ -29,9 +32,9 @@ const IndexPage = ({data}) => (
       data.allMarkdownRemark.edges.map((item,i) => {
         return (
           <div key={i}>
-            <h1>{item.node.frontmatter.title}</h1>
-            <h1>{item.node.frontmatter.data}</h1>
-            <div dangerouslySetInnerHTML={{__html: item.node.html}}></div>
+            <Link to={item.node.fields.slug}><h1>{item.node.frontmatter.title}</h1></Link>
+            <h3>{item.node.frontmatter.data}</h3>
+            <p>{item.node.excerpt}</p>
             <hr style={{height: "3px"}}/>
           </div>
         )
